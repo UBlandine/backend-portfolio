@@ -1,14 +1,14 @@
 const express = require('express');
-const userController = require('../controller/userController'); // Ensure the path is correct
+const {signup, login, sendEmail} = require('../controller/userController'); // Ensure the path is correct
 const router = express.Router();
 
 // Signup route
-router.post('/signup', userController.signup);
+router.post('/signup', signup);
 
 // Login route
-router.post('/login', userController.login);
+router.post('/login', login);
 
 // Send email route
-router.post('/send-email', userController.sendEmail);
+router.post('/send-email', sendEmail);
 
 module.exports = router;

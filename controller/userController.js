@@ -77,7 +77,7 @@ exports.sendEmail = async (req, res) => {
     const { to, subject, message } = req.body;
 
     try {
-        // Send email
+        // Send email to the user
         await transporter.sendMail({
             from: 'ugirablando@gmail.com',
             to,
@@ -85,8 +85,17 @@ exports.sendEmail = async (req, res) => {
             text: message,
         });
 
+        // Send a copy of the email to yourself (ugirablando@gmail.com)
+        await transporter.sendMail({
+            from: 'ugirablando@gmail.com',
+            to: 'ugirablando@gmail.com', // Send a copy to yourself
+            subject: `Copy of Email to ${to}: ${subject}`,
+            text: `A user sent the following message:\n\nRecipient: ${to}\nSubject: ${subject}\n\nMessage:\n${message}`,
+        });
+
         res.status(200).json({ message: 'Email sent successfully!' });
     } catch (err) {
         res.status(500).json({ message: 'Error sending email', error: err.message });
     }
 };
+
