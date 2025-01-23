@@ -18,7 +18,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/v1/users/signup:
+ * /api/users/signup:
  *   post:
  *     summary: User signup
  *     description: Register a new user in the system.
@@ -47,7 +47,7 @@ router.post('/signup', signup);
 
 /**
  * @swagger
- * /api/v1/users/login:
+ * /api/users/login:
  *   post:
  *     summary: User login
  *     description: Authenticate a user with email and password.
@@ -78,7 +78,7 @@ router.post('/login', login);
 
 /**
  * @swagger
- * /api/v1/auth/send-email:
+ * /api/auth/send-email:
  *   post:
  *     summary: Send an email
  *     description: Send an email to a specified recipient with a subject and message.
