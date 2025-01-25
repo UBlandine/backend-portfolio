@@ -5,7 +5,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/v1/users/signup:
+ * /api/auth/signup:
  *   post:
  *     summary: User signup
  *     description: Register a new user by providing email, password, and phone number.
@@ -53,7 +53,7 @@ router.post(
 
 /**
  * @swagger
- * /api/v1/users/login:
+ * /api/users/login:
  *   post:
  *     summary: User login
  *     description: Authenticate a user using their email and password.
@@ -90,7 +90,7 @@ router.post('/login', async (req, res) => {
 
 /**
  * @swagger
- * /api/v1/auth/send-email:
+ * /api/users/send-email:
  *   post:
  *     summary: Send an email
  *     description: Send an email by specifying the recipient, subject, and message.
@@ -129,12 +129,9 @@ router.post('/send-email', async (req, res) => {
     return res.status(400).json({ message: 'Please provide all required fields (to, subject, message)' });
   }
 
-  const result = await sendEmail({ to, subject, message });
-  if (result.success) {
-    return res.status(200).json({ message: 'Email sent successfully' });
-  } else {
-    return res.status(500).json({ message: 'Failed to send email', error: result.error });
-  }
+  // Pass req and res to sendEmail
+  await sendEmail(req, res, { to, subject, message });
 });
+
 
 module.exports = router;

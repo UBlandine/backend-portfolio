@@ -1,14 +1,18 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const userRoutes = require('./routes/userRoutes');
 const authRoutes = require('./routes/authRoutes');
 const swaggerUi = require('swagger-ui-express');
 const swaggerJsdoc = require('swagger-jsdoc');
+
+
 require('dotenv').config();
 
 const app = express();
-
+app.use(cors());
 // Middleware
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -31,7 +35,7 @@ const swaggerOptions = {
                 description: 'Development server',
             },
             {
-                url: 'https://backend-portfolio-1-a6sp.onrender.com',
+                url: 'https://backend-portfolio-2-s6uz.onrender.com',
                 description: 'Production server',
               }
         ],

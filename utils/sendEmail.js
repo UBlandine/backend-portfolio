@@ -1,5 +1,6 @@
 const nodemailer = require('nodemailer');
 
+// Define the sendEmail function
 const sendEmail = async ({ to, subject, message }) => {
     try {
         // Create a transporter
@@ -15,8 +16,8 @@ const sendEmail = async ({ to, subject, message }) => {
         const mailOptions = {
             from: process.env.EMAIL_USER, // Sender address
             to, // Recipient address
-            subject, // Subject line
-            text: message, // Plain text body
+            subject, // Dynamic subject
+            text: message, // Dynamic message
         };
 
         // Send the email
