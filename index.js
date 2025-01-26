@@ -35,7 +35,7 @@ const swaggerOptions = {
                 description: 'Development server',
             },
             {
-                url: 'https://backend-portfolio-3-vroc.onrender.com/api-docs/',
+                url: 'https://backend-portfolio-3-vroc.onrender.com',
                 description: 'Production server',
               }
         ],
