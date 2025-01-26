@@ -31,11 +31,11 @@ const swaggerOptions = {
         },
         servers: [
             {
-                url: 'http://localhost:5000',
+                url: 'http://localhost:5000/api-docs',
                 description: 'Development server',
             },
             {
-                url: 'https://backend-portfolio-2-s6uz.onrender.com',
+                url: 'https://backend-portfolio-3-vroc.onrender.com/api-docs/',
                 description: 'Production server',
               }
         ],
