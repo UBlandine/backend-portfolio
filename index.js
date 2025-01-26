@@ -31,7 +31,7 @@ const swaggerOptions = {
         },
         servers: [
             {
-                url: 'http://localhost:5000/api-docs',
+                url: 'http://localhost:5000',
                 description: 'Development server',
             },
             {
